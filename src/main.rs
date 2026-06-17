@@ -1,9 +1,8 @@
 use std::io; //use the standard library
 
 fn main() {
-
     let mut operation = String::new(); //reporting the operation variable
-    
+
     println!("choose an operation");
     println!(
         "1. multiplication
@@ -32,16 +31,16 @@ fn main() {
 
     //run the choosed operation
     if number == 1 {
-        println!("the result is :{}", multiplication(x, y))
+        println!("the result is: {}", multiplication(x, y))
     }
     if number == 2 {
-        println!("the result is :{}", addition(x, y))
+        println!("the result is: {}", addition(x, y))
     }
     if number == 3 {
-        println!("the result is :{}", subtraction(x, y))
+        println!("the result is: {}", subtraction(x, y))
     }
     if number == 4 {
-        println!("the result is :{}", division(x, y))
+        println!("the result is: {}", division(x, y))
     }
 }
 
@@ -60,5 +59,10 @@ fn subtraction(x: f32, y: f32) -> f32 {
 }
 
 fn division(x: f32, y: f32) -> f32 {
-    x / y
+    if y == 0.0 {
+        println!("can't divide by 0, last warning ok");
+        0.0
+    } else {
+        x / y
+    }
 }
