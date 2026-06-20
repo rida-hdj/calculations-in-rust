@@ -13,21 +13,26 @@ fn main() {
 
     io::stdin().read_line(&mut operation).unwrap(); //read the user input
 
-    let number: i32 = operation.trim().parse().unwrap(); //convert the input value to integer
+    let number: i32 = operation.trim().parse().unwrap_or(0); //convert the input value to integer
+
+    if number < 1 || number > 4 {
+        println!("err: Invalid choice");
+        return;
+    } // handle wrong user input
 
     let mut x = String::new(); //reporting the x variable
 
     println!("enter the first number:");
     io::stdin().read_line(&mut x).unwrap(); //read the user input
 
-    let x: f32 = x.trim().parse().unwrap(); //convert the input value to float
+    let x: f32 = x.trim().parse().unwrap_or(0.0); //convert the input value to float
 
     let mut y = String::new(); //reporting the y variable
 
     println!("enter the second number:");
     io::stdin().read_line(&mut y).unwrap(); //read the user input
 
-    let y: f32 = y.trim().parse().unwrap(); //convert the input value to float
+    let y: f32 = y.trim().parse().unwrap_or(0.0); //convert the input value to float
 
     //run the choosed operation
     if number == 1 {
@@ -43,8 +48,6 @@ fn main() {
         println!("the result is: {}", division(x, y))
     }
 }
-
-//todo: add errors handling when i learn it :)
 
 fn multiplication(x: f32, y: f32) -> f32 {
     x * y
